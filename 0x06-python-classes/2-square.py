@@ -3,6 +3,7 @@
 classes and objects tasks
 """
 
+
 class Square:
     """
     square class
