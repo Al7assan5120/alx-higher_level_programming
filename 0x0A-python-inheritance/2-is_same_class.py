@@ -1,15 +1,12 @@
 #!/usr/bin/python3
-"""kjkjk"""
+"""Python Script."""
 
 
 def is_same_class(obj, a_class):
-    """_summary_
+    """Return True if the object is exactly an instance of the specified class.
 
     Args:
-        obj (_type_): _description_
-        a_class (_type_): _description_
-
-    Returns:
-        _type_: _description_
+        obj (object): object
+        a_class (class): class
     """
-    return isinstance(obj, a_class)
+    return type(obj) == a_class
