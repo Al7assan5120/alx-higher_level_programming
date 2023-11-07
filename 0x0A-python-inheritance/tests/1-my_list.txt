@@ -11,7 +11,7 @@ First import ``MyList class`` from the ``1-my_list.py`` module:
 
 1 Normal:
     >>> my_list = MyList()
-    >>> my_list.append(6)
+    >>> my_list.append(5)
     >>> my_list.append(4)
     >>> my_list.append(3)
     >>> my_list.append(1)
