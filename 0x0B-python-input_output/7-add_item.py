@@ -1,17 +1,30 @@
 #!/usr/bin/python3
-"""python sc"""
-from sys import argv
+"""load_from_json_file function"""
+import json
+import sys
+import os
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
-load_file = __import__('6-load_from_json_file').load_from_json_file
-save_file = __import__('5-save_to_json_file').save_to_json_file
+def main():
+    list_argv = []
+    for arg in sys.argv[1:]:
+        list_argv.append(arg)
 
-try:
-    json_list = load_file('add_item.json')
-except (ValueError, FileNotFoundError):
-    json_list = []
+    name = 'add_item.json'
 
-for item in argv[1:]:
-    json_list.append(item)
+    if not os.path.exists(name):
+        with open(name, 'w') as file:
+            file.write("[]")
 
-save_file(json_list, 'add_item.json')
+    existing_data = load_from_json_file(name)
+    existing_data.extend(list_argv)
+
+    save_to_json_file(existing_data, name)
+
+    load_from_json_file(name)
+
+
+if __name__ == "__main__":
+    main()
