@@ -1,30 +1,17 @@
 #!/usr/bin/python3
-"""load_from_json_file function"""
-import json
-import sys
-import os
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+"""Module that loads, adds and saves arguments to a Python list"""
+from sys import argv
 
 
-def main():
-    list_argv = []
-    for arg in sys.argv[1:]:
-        list_argv.append(arg)
+load_file = __import__('6-load_from_json_file').load_from_json_file
+save_file = __import__('5-save_to_json_file').save_to_json_file
 
-    file_name = 'add_item.json'
+try:
+    json_list = load_file('add_item.json')
+except (ValueError, FileNotFoundError):
+    json_list = []
 
-    if not os.path.exists(file_name):
-        with open(file_name, 'w') as file:
-            file.write("[]")
+for item in argv[1:]:
+    json_list.append(item)
 
-    existing_data = load_from_json_file(file_name)
-    existing_data.extend(list_argv)
-
-    save_to_json_file(existing_data, file_name)
-
-    load_from_json_file(file_name)
-
-
-if __name__ == "__main__":
-    main()
+save_file(json_list, 'add_item.json')
