@@ -6,11 +6,11 @@ class BaseGeometry:
     """BaseGeometry."""
 
     def area(self):
-        """Area."""
+        """area."""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Integer validator.
+        """integer validator.
 
         Args:
             name (str): str
@@ -25,7 +25,6 @@ class BaseGeometry:
 class Rectangle(BaseGeometry):
     """Rectangle class inheriting from the base geometry class."""
 
-    # constructor method to initialize instance variables of rectangle object
     def __init__(self, width, height):
         """Validate and initialize width and height.
 
