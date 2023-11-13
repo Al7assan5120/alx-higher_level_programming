@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+"""python sc"""
+from models.rectangle import Rectangle
+
+
+class Square(Rectangle):
+    """Square Class Inharites from Rectangle Class"""
+
+    def __init__(self, size, x=0, y=0, id=None):
+        """Initializes instances"""
+
+        super().__init__(size, size, x, y, id)
+
+    def __str__(self):
+        """return [Square] (<id>) <x>/<y> - <size>"""
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
+#    def size(self, size):
+#        self.width = size
+#        self.height = size
+
+#    def get_size(self):
+#        return self.width
