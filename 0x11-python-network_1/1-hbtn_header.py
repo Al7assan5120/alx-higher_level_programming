@@ -6,9 +6,9 @@ import urllib
 import sys
 from urllib.request import urlopen
 
+if __name__ == "__main__":
+    with urlopen(sys.argv[1]) as respons:
+        request_id = respons.headers.get('X-Request-Id')
+        respons.close()
 
-with urlopen(sys.argv[1]) as respons:
-    request_id = respons.headers.get('X-Request-Id')
-    respons.close()
-
-print(request_id)
+    print(request_id)
