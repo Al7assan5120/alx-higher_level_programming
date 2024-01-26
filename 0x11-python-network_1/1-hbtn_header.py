@@ -10,4 +10,4 @@ if __name__ == "__main__":
     with urlopen(sys.argv[1]) as response:
         request_id = response.getheader("X-Request-Id")
         print(request_id)
-        response.close()
+
