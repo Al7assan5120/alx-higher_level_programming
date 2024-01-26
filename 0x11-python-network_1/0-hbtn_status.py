@@ -11,5 +11,5 @@ with urlopen("https://alx-intranet.hbtn.io/status") as respons:
     charset = respons.headers.get_content_charset()
     respons.close()
 
-print((f"Body response:\n    - type: {types}\n    - content: {body}\n"
-       f"    - utf8 content: {charset}"))
+print((f"Body response:\n\t- type: {types}\n\t- content: {body}\n"
+       f"\t- utf8 content: {charset}"))
