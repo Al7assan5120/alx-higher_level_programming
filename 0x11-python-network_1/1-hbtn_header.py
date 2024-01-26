@@ -7,8 +7,8 @@ import sys
 from urllib.request import urlopen
 
 if __name__ == "__main__":
-    with urlopen(sys.argv[1]) as respons:
-        request_id = respons.headers.get('X-Request-Id')
-        respons.close()
+    with urlopen(sys.argv[1]) as response:
+        request_id = response.getheader("X-Request-Id")
+        response.close()
 
     print(request_id)
